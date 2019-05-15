@@ -1,24 +1,22 @@
 
 public class GuessingGame {
+	int MysteryNumber = (int) ((Math.random() * 10) + 1);
 
 	public String playGame(int guessedNumber) {
-		if (guessedNumber == 7 ) {
-			return "Winner";
+
+		if (guessedNumber > MysteryNumber && guessedNumber < 11) {
+			return ("Too High try again");
+		} else if (guessedNumber < MysteryNumber && guessedNumber > 0) {
+			return ("Too Low try again");
+		} else if (guessedNumber == MysteryNumber) {
+			return ("Winner");
+		} else if (guessedNumber >= 1 && guessedNumber <= 10) {
+			return ("Losser");
+		} else if (guessedNumber < 1) {
+			return ("any number 1-10");
+		} else if (guessedNumber > 10) {
+			return ("any number 1-10");
 		}
-		else if (guessedNumber <=0) {
-			return "Please guess a number between 1 - 10";
-		}
-		else if (guessedNumber >= 11) {
-			return "Please guess a number between 1 - 10";
-		}
-		else if (guessedNumber >=1 && guessedNumber <=10) {
-			return "Losser";
-		}
-		if (guessedNumber > 7 && guessedNumber < 11)
-			System.out.println("Too High");
-		if (guessedNumber < 7 && guessedNumber > 0)
-			System.out.println("Too Low");
-		
-	return"Invalid";
-}
+		return "Invalid";
+	}
 }
